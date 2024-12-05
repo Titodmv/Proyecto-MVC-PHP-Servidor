@@ -1,0 +1,49 @@
+{
+  "montanas_rusas": [
+    {
+      "nombre": "Kingda Ka",
+      "fabricante": "ferrisCoaster",
+      "altura": 139,
+      "velocidad": 206,
+      "tipo": "Coaster de lanzamiento",
+      "ubicacion": "Six Flags Great Adventure, NJ, USA",
+      "fecha_inauguracion": "2005-05-21"
+    },
+    {
+      "nombre": "Steel Dragon 2000",
+      "fabricante": "rollerWorks",
+      "altura": 97,
+      "velocidad": 153,
+      "tipo": "Coaster de montaña rusa de acero",
+      "ubicacion": "Nagashima Spa Land, Japón",
+      "fecha_inauguracion": "2000-08-01"
+    },
+    {
+      "nombre": "Fury 325",
+      "fabricante": "ferrisCoaster",
+      "altura": 99,
+      "velocidad": 153,
+      "tipo": "Coaster de altura alta",
+      "ubicacion": "Carowinds, Charlotte, NC, USA",
+      "fecha_inauguracion": "2015-03-28"
+    },
+    {
+      "nombre": "Millennium Force",
+      "fabricante": "ferrisCoaster",
+      "altura": 94,
+      "velocidad": 150,
+      "tipo": "Coaster de montaña rusa de acero",
+      "ubicacion": "Cedar Point, Ohio, USA",
+      "fecha_inauguracion": "2000-05-13"
+    },
+    {
+      "nombre": "Shambhala",
+      "fabricante": "ferrisCoaster",
+      "altura": 249,
+      "velocidad": 134,
+      "tipo": "Coaster de montaña rusa de acero",
+      "ubicacion": "PortAventura Park, Salou, España",
+      "fecha_inauguracion": "2012-05-12"
+    }
+  ]
+}
