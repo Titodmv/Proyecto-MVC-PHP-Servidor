@@ -1,12 +1,14 @@
 <?php
 
-class MontañaRusaControlador {
+class MontañaRusaControlador
+{
 
     // Mostrar la lista de montañas rusas
-    public function index() {
+    public function index()
+    {
         // Leer el archivo JSON
         $data = json_decode(file_get_contents(__DIR__ . '/../datos/montanas_rusas.json'), true);
-        
+
         // Obtener las montañas rusas
         $montanasRusas = $data['montanas_rusas'] ?? [];
 
@@ -15,7 +17,8 @@ class MontañaRusaControlador {
     }
 
     // Agregar una nueva montaña rusa
-    public function agregar() {
+    public function agregar()
+    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             // Recoger los datos del formulario
             $nuevaMontaña = [
