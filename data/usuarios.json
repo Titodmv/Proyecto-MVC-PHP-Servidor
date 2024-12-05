@@ -1,35 +1,34 @@
 {
-    "usuarios": [
-      {
-        "nombreUsuario": "ferrisCoaster",
-        "contrasena": "ferris123",
-        "eventos": [
-          {
-            "tipo": "Conferencia",
-            "nombre": "IAPA Expo 2024",
-            "fecha": "2024-09-15",
-            "ubicacion": "Orlando, FL"
-          },
-          {
-            "tipo": "Exposición",
-            "nombre": "Parques de Diversiones 2024",
-            "fecha": "2024-11-20",
-            "ubicacion": "Madrid, España"
-          }
-        ]
-      },
-      {
-        "nombreUsuario": "rollerWorks",
-        "contrasena": "rollerPass456",
-        "eventos": [
-          {
-            "tipo": "Conferencia",
-            "nombre": "Feria de Parques de Diversiones 2024",
-            "fecha": "2024-10-10",
-            "ubicacion": "Las Vegas, NV"
-          }
-        ]
-      }
-    ]
-  }
-  
+  "usuarios": [
+    {
+      "nombreUsuario": "ferrisCoaster",
+      "contrasena": "ferris123",
+      "eventos": [
+        {
+          "tipo": "Conferencia",
+          "nombre": "IAPA Expo 2024",
+          "fecha": "2024-09-15",
+          "ubicacion": "Orlando, FL"
+        },
+        {
+          "tipo": "Exposición",
+          "nombre": "Parques de Diversiones 2024",
+          "fecha": "2024-11-20",
+          "ubicacion": "Madrid, España"
+        }
+      ]
+    },
+    {
+      "nombreUsuario": "rollerWorks",
+      "contrasena": "rollerPass456",
+      "eventos": [
+        {
+          "tipo": "Conferencia",
+          "nombre": "Feria de Parques de Diversiones 2024",
+          "fecha": "2024-10-10",
+          "ubicacion": "Las Vegas, NV"
+        }
+      ]
+    }
+  ]
+}

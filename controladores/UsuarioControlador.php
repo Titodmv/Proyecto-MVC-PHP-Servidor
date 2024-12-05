@@ -1,9 +1,11 @@
 <?php
 
-class UsuarioControlador {
+class UsuarioControlador
+{
 
     // Mostrar el formulario de login
-    public function login() {
+    public function login()
+    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $usuarios = json_decode(file_get_contents(__DIR__ . '/../datos/usuarios.json'), true);
             foreach ($usuarios['usuarios'] as $usuario) {
@@ -20,14 +22,16 @@ class UsuarioControlador {
     }
 
     // Logout (cerrar sesión)
-    public function logout() {
+    public function logout()
+    {
         session_destroy();
         header('Location: index.php?accion=index');
         exit();
     }
 
     // Registrar un nuevo usuario
-    public function registrar() {
+    public function registrar()
+    {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $nuevoUsuario = [
                 'nombreUsuario' => $_POST['nombreUsuario'],
