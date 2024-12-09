@@ -1,3 +1,8 @@
+<?php
+    if (!isset($_COOKIE['logueado'])) {
+       // header('Location: /vistas/usuario/login.php');
+    }
+?>
 <h2>Lista de Eventos</h2>
 <table>
     <thead>

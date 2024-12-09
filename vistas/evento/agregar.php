@@ -1,3 +1,8 @@
+<?php
+    if (!isset($_COOKIE['logueado'])) {
+        //header('Location: /vistas/usuario/login.php');
+    }
+?>
 <h2>Agregar Evento</h2>
 <form action="index.php?accion=agregar_evento" method="POST">
     <label for="nombre">Nombre del Evento:</label>

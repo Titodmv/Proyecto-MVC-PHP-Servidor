@@ -1,3 +1,8 @@
+<?php
+    if (!isset($_COOKIE['logueado'])) {
+        //header('Location: /vistas/usuario/login.php');
+    }
+?>
 <h2>Agregar Nueva Montaña Rusa</h2>
 <form action="index.php?accion=agregar" method="POST">
     <label for="nombre">Nombre de la Montaña Rusa:</label>

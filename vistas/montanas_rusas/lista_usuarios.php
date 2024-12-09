@@ -1,5 +1,9 @@
 <h2>Lista de Montañas Rusas</h2>
-
+<?php
+    if (!isset($_COOKIE['logueado'])) {
+        //header('Location: /vistas/usuario/login.php');
+    }
+?>
 <?php if (empty($montanasRusas)): ?>
     <p>No hay montañas rusas disponibles.</p>
 <?php else: ?>

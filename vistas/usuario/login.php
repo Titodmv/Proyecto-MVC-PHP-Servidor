@@ -7,4 +7,6 @@
     <input type="password" name="contrasena" required><br>
 
     <button type="submit">Iniciar Sesión</button>
+    <a href="/Proyecto%20MVC%20PHP%20Servidor/?accion=registrar">¿No tienes cuenta? Regístrate aquí</a>
+
 </form>

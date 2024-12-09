@@ -1,34 +1,16 @@
 {
-  "usuarios": [
-    {
-      "nombreUsuario": "ferrisCoaster",
-      "contrasena": "ferris123",
-      "eventos": [
+    "usuarios": [
         {
-          "tipo": "Conferencia",
-          "nombre": "IAPA Expo 2024",
-          "fecha": "2024-09-15",
-          "ubicacion": "Orlando, FL"
+            "nombreUsuario": "Intamin",
+            "contrasena": "$2y$10$t7d0rSvz4xcYvsC4hjJ1ZeiirVGm3DJiMGE9pEBc2yVGV86tlwgr2",
+            "rol": "fabricante",
+            "eventos": []
         },
         {
-          "tipo": "Exposición",
-          "nombre": "Parques de Diversiones 2024",
-          "fecha": "2024-11-20",
-          "ubicacion": "Madrid, España"
+            "nombreUsuario": "Collado",
+            "contrasena": "$2y$10$dJQcOra\/nqWybsuRM19eXem82FxWXaSeeh1tvfgDuknD2cTm1cjGm",
+            "rol": "usuario",
+            "eventos": []
         }
-      ]
-    },
-    {
-      "nombreUsuario": "rollerWorks",
-      "contrasena": "rollerPass456",
-      "eventos": [
-        {
-          "tipo": "Conferencia",
-          "nombre": "Feria de Parques de Diversiones 2024",
-          "fecha": "2024-10-10",
-          "ubicacion": "Las Vegas, NV"
-        }
-      ]
-    }
-  ]
+    ]
 }
