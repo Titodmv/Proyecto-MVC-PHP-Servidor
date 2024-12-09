@@ -6,11 +6,11 @@ class MontañaRusaControlador
     // Mostrar la lista de montañas rusas
     public function index()
     {
-        if (!isset($_COOKIE['loguedo'])) {
+        if (!isset($_COOKIE['logueado'])) {
             header('Location: /Proyecto%20MVC%20PHP%20Servidor/?accion=login');
         }
         // Leer el archivo JSON
-        $data = json_decode(file_get_contents(__DIR__ . '/../datos/montanas_rusas.json'), true);
+        $data = json_decode(file_get_contents(__DIR__ . '/../data/montanas_rusas.json'), true);
 
         // Obtener las montañas rusas
         $montanasRusas = $data['montanas_rusas'] ?? [];
@@ -23,7 +23,7 @@ class MontañaRusaControlador
     public function agregar()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Recoger los datos del formulario
+            // Recoger los data del formulario
             $nuevaMontaña = [
                 'nombre' => $_POST['nombre'],
                 'velocidad' => $_POST['velocidad'],
@@ -35,11 +35,11 @@ class MontañaRusaControlador
             ];
 
             // Leer las montañas rusas existentes
-            $data = json_decode(file_get_contents(__DIR__ . '/../datos/montanas_rusas.json'), true);
+            $data = json_decode(file_get_contents(__DIR__ . '/../data/montanas_rusas.json'), true);
             $data['montanas_rusas'][] = $nuevaMontaña;
 
             // Guardar las montañas rusas actualizadas en el archivo JSON
-            file_put_contents(__DIR__ . '/../datos/montanas_rusas.json', json_encode($data, JSON_PRETTY_PRINT));
+            file_put_contents(__DIR__ . '/../data/montanas_rusas.json', json_encode($data, JSON_PRETTY_PRINT));
 
             // Redirigir a la lista de montañas rusas
             header('Location: index.php?accion=index');

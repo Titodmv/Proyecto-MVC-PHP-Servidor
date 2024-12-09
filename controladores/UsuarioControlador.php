@@ -8,15 +8,16 @@ class UsuarioControlador
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $usuarios = json_decode(file_get_contents(__DIR__ . '/../data/usuarios.json'), true);
+        
             foreach ($usuarios['usuarios'] as $usuario) {
-                if ($usuario['nombreUsuario'] === $_POST['nombreUsuario'] && password_verify($usuario['contrasena'], $_POST['contrasena'])) {
-                    $_SESSION['usuario'] = $usuario;
+                if ($usuario['nombreUsuario'] === $_POST['nombreUsuario'] && password_verify($_POST['contrasena'], $usuario['contrasena'])) {
+                    setcookie('logueado', $usuario, time() + 86400);
                     header('Location: index.php?accion=index');
                     exit();
                 }
             }
             echo "Usuario o contraseña incorrectos.";
-        }
+        }        
 
         require_once __DIR__ . '/../vistas/usuario/login.php'; // Mostrar formulario de login
     }
@@ -36,6 +37,8 @@ class UsuarioControlador
             $nuevoUsuario = [
                 'nombreUsuario' => $_POST['nombreUsuario'],
                 'contrasena' => password_hash($_POST['contrasena'], PASSWORD_DEFAULT),
+                'rol' => $_POST['rol'],
+                'eventos' => []
             ];
 
             // Obtener los usuarios existentes
@@ -46,8 +49,8 @@ class UsuarioControlador
             file_put_contents(__DIR__ . '/../data/usuarios.json', json_encode($usuarios, JSON_PRETTY_PRINT));
 
             echo "Usuario registrado con éxito.";
-            header('Location: index.php?accion=login'); // Redirigir al login
-            exit();
+            //header('Location: index.php?accion=login'); // Redirigir al login
+            //exit();
         }
 
         require_once __DIR__ . '/../vistas/usuario/registrar.php'; // Mostrar formulario de registro
