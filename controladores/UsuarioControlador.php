@@ -11,7 +11,7 @@ class UsuarioControlador
         
             foreach ($usuarios['usuarios'] as $usuario) {
                 if ($usuario['nombreUsuario'] === $_POST['nombreUsuario'] && password_verify($_POST['contrasena'], $usuario['contrasena'])) {
-                    setcookie('logueado', $usuario, time() + 86400);
+                    $_SESSION['user'] = $usuario;
                     header('Location: index.php?accion=index');
                     exit();
                 }

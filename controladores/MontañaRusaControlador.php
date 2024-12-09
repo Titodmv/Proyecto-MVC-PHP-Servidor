@@ -6,8 +6,9 @@ class MontañaRusaControlador
     // Mostrar la lista de montañas rusas
     public function index()
     {
-        if (!isset($_COOKIE['logueado'])) {
-            header('Location: /Proyecto%20MVC%20PHP%20Servidor/?accion=login');
+        if (!isset($_SESSION['user'])) {
+            header('Location: /Proyecto%20MVC%20PHP%20Servidor/?action=login');
+            exit();
         }
         // Leer el archivo JSON
         $data = json_decode(file_get_contents(__DIR__ . '/../data/montanas_rusas.json'), true);
@@ -16,7 +17,12 @@ class MontañaRusaControlador
         $montanasRusas = $data['montanas_rusas'] ?? [];
 
         // Pasar las montañas rusas a la vista
-        require_once __DIR__ . '/../vistas/tarea/lista.php';
+        if ($_SESSION["user"]["rol"]=="fabricante") {
+            require_once __DIR__ . '/../vistas/montanas_rusas/lista_fabricantes.php';
+        } else {
+            require_once __DIR__ . '/../vistas/montanas_rusas/lista_usuarios.php';
+        }
+        
     }
 
     // Agregar una nueva montaña rusa
@@ -47,6 +53,6 @@ class MontañaRusaControlador
         }
 
         // Mostrar el formulario para agregar una nueva montaña rusa
-        require_once __DIR__ . '/../vistas/tarea/agregar.php';
+        require_once __DIR__ . '/../vistas/montanas_rusas/agregar.php';
     }
 }
