@@ -6,6 +6,9 @@ class MontañaRusaControlador
     // Mostrar la lista de montañas rusas
     public function index()
     {
+        if (!isset($_COOKIE['loguedo'])) {
+            header('Location: /Proyecto%20MVC%20PHP%20Servidor/?accion=login');
+        }
         // Leer el archivo JSON
         $data = json_decode(file_get_contents(__DIR__ . '/../datos/montanas_rusas.json'), true);
 
