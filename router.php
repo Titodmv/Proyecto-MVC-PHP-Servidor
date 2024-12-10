@@ -48,6 +48,14 @@ switch ($accion) {
         // Acción para listar los eventos
         (new EventoControlador())->listar();
         break;
+    case 'eliminar':
+        // Acción para eliminar una nueva montaña rusa
+        (new MontañaRusaControlador())->eliminar();
+        break;
+    case 'validar':
+        // Acción para validar una nueva montaña rusa
+        (new MontañaRusaControlador())->validar();
+        break;
     default:
         echo "Acción no reconocida.";  // Mensaje si la acción no está definida
         break;

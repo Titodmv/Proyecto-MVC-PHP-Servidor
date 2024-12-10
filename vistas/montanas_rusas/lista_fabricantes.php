@@ -67,6 +67,7 @@ $montanasRusasGenerales = array_filter($montanasRusas, function ($montana) use (
                 <th>Tipo</th>
                 <th>Ubicación</th>
                 <th>Fecha de Inauguración</th>
+                <th colspan="2">Funciones</th>
             </tr>
         </thead>
         <tbody>
@@ -78,6 +79,10 @@ $montanasRusasGenerales = array_filter($montanasRusas, function ($montana) use (
                     <td><?php echo htmlspecialchars($montana['tipo']); ?></td>
                     <td><?php echo htmlspecialchars($montana['ubicacion']); ?></td>
                     <td><?php echo htmlspecialchars($montana['fecha_inauguracion']); ?></td>
+                    <td><a href="index.php?accion=eliminar&atraccion=<?php echo htmlspecialchars($montana['nombre']); ?>"><button>Eliminar</button></a></td>
+                    <?php if ($montana['Valido'] == 'No') :?>
+                        <td><a href="index.php?accion=validar&atraccion=<?php echo htmlspecialchars($montana['nombre']); ?>"><button>Validar</button></a></td>
+                    <?php endif; ?>
                 </tr>
             <?php endforeach; ?>
         </tbody>
@@ -110,6 +115,7 @@ $montanasRusasGenerales = array_filter($montanasRusas, function ($montana) use (
                     <td><?php echo htmlspecialchars($montana['nombre']); ?></td>
                     <td><?php echo htmlspecialchars($montana['velocidad']); ?> km/h</td>
                     <td><?php echo htmlspecialchars($montana['altura']); ?> m</td>
+                    <td><?php echo htmlspecialchars($montana['fabricante']); ?> m</td>
                     <td><?php echo htmlspecialchars($montana['tipo']); ?></td>
                     <td><?php echo htmlspecialchars($montana['ubicacion']); ?></td>
                     <td><?php echo htmlspecialchars($montana['fecha_inauguracion']); ?></td>
@@ -117,6 +123,6 @@ $montanasRusasGenerales = array_filter($montanasRusas, function ($montana) use (
             <?php endforeach; ?>
         </tbody>
     </table>
-
+    <a href="./agregar_montanaF.php">Agregar montaña rusa de la compañia</a>
 </body>
 </html>

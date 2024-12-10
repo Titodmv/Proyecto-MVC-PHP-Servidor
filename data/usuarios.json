@@ -1,16 +1,28 @@
 {
-    "usuarios": [
-        {
+    "usuarios": {
+        "Collado": {
+            "nombreUsuario": "Collado",
+            "contrasena": "$2y$10$.NZc22FO4ck9HZZqL\/Ws4.3S\/EXbH9VUiTlqFOZy\/Q5HWuAbZncMy",
+            "rol": "usuario",
+            "eventos": []
+        },
+        "Intamin": {
             "nombreUsuario": "Intamin",
-            "contrasena": "$2y$10$t7d0rSvz4xcYvsC4hjJ1ZeiirVGm3DJiMGE9pEBc2yVGV86tlwgr2",
+            "contrasena": "$2y$10$EgKYY4v77RXEEdDSb98Kh.dfOspvWYWuOpumo9zE798YXRLs2Cusu",
             "rol": "fabricante",
             "eventos": []
         },
-        {
-            "nombreUsuario": "Collado",
-            "contrasena": "$2y$10$dJQcOra\/nqWybsuRM19eXem82FxWXaSeeh1tvfgDuknD2cTm1cjGm",
+        "David": {
+            "nombreUsuario": "David",
+            "contrasena": "$2y$10$WDXWDomzRd46IQ3JqeSjBuBZTrfTkGK0kowex5tP1sasM3DcUlcba",
+            "rol": "usuario",
+            "eventos": []
+        },
+        "Iago": {
+            "nombreUsuario": "Iago",
+            "contrasena": "$2y$10$MwBWVJRlqUxPLaoraZ27x.3lSbYHowPwkuvlHI29aOurP82iUuZPG",
             "rol": "usuario",
             "eventos": []
         }
-    ]
+    }
 }
