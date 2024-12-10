@@ -1,9 +1,4 @@
 <h2>Lista de Montañas Rusas</h2>
-<?php
-    if (!isset($_COOKIE['logueado'])) {
-        //header('Location: /vistas/usuario/login.php');
-    }
-?>
 <?php if (empty($montanasRusas)): ?>
     <p>No hay montañas rusas disponibles.</p>
 <?php else: ?>
@@ -21,15 +16,17 @@
         </thead>
         <tbody>
             <?php foreach ($montanasRusas as $montana): ?>
-                <tr>
-                    <td><?php echo htmlspecialchars($montana['nombre']); ?></td>
-                    <td><?php echo htmlspecialchars($montana['velocidad']); ?> km/h</td>
-                    <td><?php echo htmlspecialchars($montana['altura']); ?> m</td>
-                    <td><?php echo htmlspecialchars($montana['fabricante']); ?></td>
-                    <td><?php echo htmlspecialchars($montana['tipo']); ?></td>
-                    <td><?php echo htmlspecialchars($montana['ubicacion']); ?></td>
-                    <td><?php echo htmlspecialchars($montana['fecha_inauguracion']); ?></td>
-                </tr>
+                <?php if ($montana['Valido'] == 'Si') : ?>
+                    <tr>
+                        <td><?php echo htmlspecialchars($montana['nombre']); ?></td>
+                        <td><?php echo htmlspecialchars($montana['velocidad']); ?> km/h</td>
+                        <td><?php echo htmlspecialchars($montana['altura']); ?> m</td>
+                        <td><?php echo htmlspecialchars($montana['fabricante']); ?></td>
+                        <td><?php echo htmlspecialchars($montana['tipo']); ?></td>
+                        <td><?php echo htmlspecialchars($montana['ubicacion']); ?></td>
+                        <td><?php echo htmlspecialchars($montana['fecha_inauguracion']); ?></td>
+                    </tr>
+                <?php endif; ?>
             <?php endforeach; ?>
         </tbody>
     </table>

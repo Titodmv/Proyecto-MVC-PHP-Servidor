@@ -1,5 +1,5 @@
 <?php
-
+require_once __DIR__ . '/../modelos/MontanaRusa.php';
 class MontañaRusaControlador
 {
 
@@ -7,29 +7,21 @@ class MontañaRusaControlador
     public function index()
     {
         if (!isset($_SESSION['user'])) {
-            header('Location: /Proyecto%20MVC%20PHP%20Servidor/?action=login');
+            header('Location: /Proyecto%20MVC%20PHP%20Servidor/?accion=login');
             exit();
         }
-        // Leer el archivo JSON
-        $data = json_decode(file_get_contents(__DIR__ . '/../data/montanas_rusas.json'), true);
-
-        // Obtener las montañas rusas
-        $montanasRusas = $data['montanas_rusas'] ?? [];
-
-        // Pasar las montañas rusas a la vista
-        if ($_SESSION["user"]["rol"]=="fabricante") {
-            require_once __DIR__ . '/../vistas/montanas_rusas/lista_fabricantes.php';
-        } else {
-            require_once __DIR__ . '/../vistas/montanas_rusas/lista_usuarios.php';
-        }
-        
+        MontanaRusa::mostrarListas();
     }
 
     // Agregar una nueva montaña rusa
     public function agregar()
     {
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            // Recoger los data del formulario
+            if ($_SESSION["user"]["rol"]=="fabricante" || $_SESSION["user"]["rol"]=="administrador") {
+                $valido = "Si";
+            } else {
+                $valido = "No";
+            }
             $nuevaMontaña = [
                 'nombre' => $_POST['nombre'],
                 'velocidad' => $_POST['velocidad'],
@@ -37,22 +29,22 @@ class MontañaRusaControlador
                 'fabricante' => $_POST['fabricante'],
                 'tipo' => $_POST['tipo'],
                 'ubicacion' => $_POST['ubicacion'],
-                'fecha_inauguracion' => $_POST['fecha_inauguracion']
+                'fecha_inauguracion' => $_POST['fecha_inauguracion'],
+                "Valido" => $valido
             ];
-
-            // Leer las montañas rusas existentes
-            $data = json_decode(file_get_contents(__DIR__ . '/../data/montanas_rusas.json'), true);
-            $data['montanas_rusas'][] = $nuevaMontaña;
-
-            // Guardar las montañas rusas actualizadas en el archivo JSON
-            file_put_contents(__DIR__ . '/../data/montanas_rusas.json', json_encode($data, JSON_PRETTY_PRINT));
-
-            // Redirigir a la lista de montañas rusas
-            header('Location: index.php?accion=index');
-            exit();
+            
+            MontanaRusa::guardar($nuevaMontaña);
         }
 
         // Mostrar el formulario para agregar una nueva montaña rusa
-        require_once __DIR__ . '/../vistas/montanas_rusas/agregar.php';
+        require_once __DIR__ . '/../vistas/montanas_rusas/agregar_montana.php';
     }
+
+    public function eliminar() {
+        MontanaRusa::eliminar($_GET['atraccion']);
+    }
+
+     public function validar() {
+        MontanaRusa::validar($_GET['atraccion']);
+     }
 }
