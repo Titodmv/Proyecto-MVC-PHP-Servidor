@@ -9,17 +9,20 @@ class MontanaRusa
         return json_decode(file_get_contents(__DIR__ . '/../data/montanas_rusas.json'), true);
     }
 
-    public static function  mostrarListas() {
+    public static function  mostrarListas()
+    {
         // Leer el archivo JSON
         $data = self::obtenerTodas();
 
         // Obtener las montañas rusas
         $montanasRusas = $data ?? [];
-        
+
 
         // Pasar las montañas rusas a la vista
-        if ($_SESSION['user']['rol']=="fabricante") {
+        if ($_SESSION['user']['rol'] == "fabricante") {
             require_once __DIR__ . '/../vistas/montanas_rusas/lista_fabricantes.php';
+        } elseif ($_SESSION['user']['rol'] == "administrador") {
+            require_once __DIR__ . '/../vistas/montanas_rusas/lista_administrador.php';
         } else {
             require_once __DIR__ . '/../vistas/montanas_rusas/lista_usuarios.php';
         }
@@ -34,7 +37,8 @@ class MontanaRusa
         self::almacenar($data);
     }
 
-    public static function almacenar($data) {
+    public static function almacenar($data)
+    {
         // Guardar las montañas rusas actualizadas en el archivo JSON
         file_put_contents(__DIR__ . '/../data/montanas_rusas.json', json_encode($data, JSON_PRETTY_PRINT));
 
@@ -43,15 +47,17 @@ class MontanaRusa
         exit();
     }
 
-    public static function eliminar($nombre) {
+    public static function eliminar($nombre)
+    {
         $data = self::obtenerTodas();
         unset($data[$nombre]);
         self::almacenar($data);
     }
 
-    public static function validar($nombre) {
+    public static function validar($nombre)
+    {
         $data = self::obtenerTodas();
-        $data[$nombre]['Valido']='Si';
+        $data[$nombre]['Valido'] = 'Si';
         self::almacenar($data);
     }
 }

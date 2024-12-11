@@ -6,10 +6,6 @@ class MontañaRusaControlador
     // Mostrar la lista de montañas rusas
     public function index()
     {
-        if (!isset($_SESSION['user'])) {
-            header('Location: /Proyecto%20MVC%20PHP%20Servidor/?accion=login');
-            exit();
-        }
         MontanaRusa::mostrarListas();
     }
 

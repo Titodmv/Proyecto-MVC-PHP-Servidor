@@ -10,6 +10,7 @@
     <select name="rol">
         <option value="fabricante">Fabricante</option>
         <option value="usuario">Usuario</option>
+        <option value="administrador">Administrador</option>
     </select>
     <br>
     <button type="submit">Registarse</button>

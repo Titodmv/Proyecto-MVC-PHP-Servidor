@@ -33,3 +33,7 @@
 <?php endif; ?>
 
 <a href="index.php?accion=agregar">Agregar Nueva Montaña Rusa</a>
+<br>
+<a href="index.php?accion=logout">Cerrar sesión</a>
+<br>
+<a href="index.php?accion=agregar_evento">Crear un evento o compartirlo</a>
