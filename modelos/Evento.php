@@ -45,7 +45,7 @@ class Evento
         }
     }
 
-    public function listar()
+    public static function listar()
     {
         Evento::eliminarEventosPasados(); // Eliminar eventos pasados
         $eventosUsuario = Evento::listar(); // Obtener eventos del usuario
