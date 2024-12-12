@@ -142,9 +142,12 @@ $montanasRusasGenerales = array_filter($montanasRusas, function ($montana) use (
             <?php endforeach; ?>
         </tbody>
     </table>
-    <a href="./agregar_montanaF.php">Agregar montaña rusa de la compañia</a>
-    <br>
-    <a href="index.php?accion=logout">Cerrar sesión</a>
+    <a href="index.php?accion=agregar">Agregar Nueva Montaña Rusa</a>
+<br>
+<a href="index.php?accion=logout">Cerrar sesión</a>
+<br>
+<a href="index.php?accion=agregar_evento">Crear un evento o compartirlo</a><br>
+<a href="index.php/?accion=listar_eventos">Ver eventos</a>
 </body>
 
 </html>

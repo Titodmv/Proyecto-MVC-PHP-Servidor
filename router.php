@@ -53,6 +53,14 @@ switch ($accion) {
         // Acción para validar una nueva montaña rusa
         (new MontañaRusaControlador())->validar();
         break;
+    case 'noAsistir':
+        // Acción para eliminar una nueva montaña rusa
+        (new EventoControlador())->eliminar();
+        break;
+    case 'asistir':
+        // Acción para validar una nueva montaña rusa
+        (new EventoControlador())->asistir();
+        break;
     default:
         echo "Acción no reconocida.";  // Mensaje si la acción no está definida
         break;

@@ -4,11 +4,11 @@
         "contrasena": "$2y$10$l\/FTXsBPknRP7ki3RX2Uaedck7luyfxyhXxcFGU8LkJYEo1khvzEm",
         "rol": "administrador",
         "eventos": {
-            "a": {
-                "nombre": "a",
-                "fecha": "2024-12-21",
-                "descripcion": "dasda",
-                "asistencia": false
+            "b": {
+                "nombre": "b",
+                "fecha": "2024-12-19",
+                "descripcion": "asdasdasd",
+                "asistencia": true
             }
         }
     },
@@ -21,7 +21,13 @@
                 "nombre": "a",
                 "fecha": "2024-12-21",
                 "descripcion": "dasda",
-                "asistencia": true
+                "asistencia": false
+            },
+            "b": {
+                "nombre": "b",
+                "fecha": "2024-12-19",
+                "descripcion": "asdasdasd",
+                "asistencia": false
             }
         }
     },

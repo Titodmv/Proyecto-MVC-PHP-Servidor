@@ -6,9 +6,14 @@ class EventoControlador
     // Mostrar la lista de eventos
     public function listar()
     {
-        $dataUsuario = Evento::listar();
-        require_once __DIR__ . '/../vistas/evento/lista.php'; // Mostrar los eventos
+        Evento::eliminarEventosPasados(); 
+        $eventosUsuario = Evento::listar(); 
+        $eventosGenerales = Evento::obtenerEventosGenerales(); 
+
+        require_once __DIR__ . '/../vistas/evento/lista.php'; 
     }
+
+
 
     // Agregar un nuevo evento
     public function agregar()
@@ -19,7 +24,7 @@ class EventoControlador
                 'nombre' => $_POST['nombre'],
                 'fecha' => $_POST['fecha'],
                 'descripcion' => $_POST['descripcion'],
-                'asistencia' => false
+                'asistencia' => true
             ];
 
             Evento::guardar($_POST['nombre'], $nuevoEvento);
@@ -28,7 +33,8 @@ class EventoControlador
         require_once __DIR__ . '/../vistas/evento/agregar.php'; // Mostrar formulario de agregar evento
     }
 
-    public function compartir() {
+    public function compartir()
+    {
 
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
@@ -38,4 +44,13 @@ class EventoControlador
         require_once __DIR__ . '/../vistas/evento/agregar.php'; // Mostrar formulario de agregar evento
     }
 
+    public function asistir()
+    {
+        Evento::asistir($_GET['nombre']);
+    }
+
+    public function eliminar()
+    {
+        Evento::eliminar($_GET['nombre']);
+    }
 }
