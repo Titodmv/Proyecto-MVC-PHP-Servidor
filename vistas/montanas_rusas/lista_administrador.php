@@ -2,15 +2,10 @@
 session_start();
 
 // Comprobar si el usuario tiene el rol de 'fabricante'
-if (!isset($_SESSION['user']) || $_SESSION['user']['rol'] !== 'fabricante') {
-    echo "Acceso denegado. Necesitas ser fabricante para acceder a esta página.";
+if (!isset($_SESSION['user']) || $_SESSION['user']['rol'] !== 'administrador') {
+    echo "Acceso denegado. Necesitas ser administrador para acceder a esta página.";
     exit();
 }
-
-// Filtrar las montañas rusas creadas por el fabricante
-$montanasRusasFabricante = array_filter($montanasRusas, function ($montana) {
-    return $montana['fabricante'] === $_SESSION['user']['nombreUsuario'];
-});
 
 // Filtrar las montañas rusas generales por los parámetros recibidos en la URL
 $filtrar = $_GET;  // Parámetros de filtro desde la URL
@@ -65,7 +60,7 @@ $montanasRusasGenerales = array_filter($montanasRusas, function ($montana) use (
     <h1>Panel de Montañas Rusas</h1>
 
     <!-- Tabla de montañas rusas creadas por el fabricante -->
-    <h2>Mis Montañas Rusas</h2>
+    <h2>Montañas rusas por validar</h2>
     <table>
         <thead>
             <tr>
@@ -79,16 +74,16 @@ $montanasRusasGenerales = array_filter($montanasRusas, function ($montana) use (
             </tr>
         </thead>
         <tbody>
-            <?php foreach ($montanasRusasFabricante as $montana) : ?>
+            <?php foreach ($montanasRusasGenerales as $montana) : ?>
                 <tr>
-                    <td><?php echo htmlspecialchars($montana['nombre']); ?></td>
-                    <td><?php echo htmlspecialchars($montana['velocidad']); ?> km/h</td>
-                    <td><?php echo htmlspecialchars($montana['altura']); ?> m</td>
-                    <td><?php echo htmlspecialchars($montana['tipo']); ?></td>
-                    <td><?php echo htmlspecialchars($montana['ubicacion']); ?></td>
-                    <td><?php echo htmlspecialchars($montana['fecha_inauguracion']); ?></td>
-                    <td><a href="index.php?accion=eliminar&atraccion=<?php echo htmlspecialchars($montana['nombre']); ?>"><button>Eliminar</button></a></td>
                     <?php if ($montana['Valido'] == 'No') : ?>
+                        <td><?php echo htmlspecialchars($montana['nombre']); ?></td>
+                        <td><?php echo htmlspecialchars($montana['velocidad']); ?> km/h</td>
+                        <td><?php echo htmlspecialchars($montana['altura']); ?> m</td>
+                        <td><?php echo htmlspecialchars($montana['tipo']); ?></td>
+                        <td><?php echo htmlspecialchars($montana['ubicacion']); ?></td>
+                        <td><?php echo htmlspecialchars($montana['fecha_inauguracion']); ?></td>
+                        <td><a href="index.php?accion=eliminar&atraccion=<?php echo htmlspecialchars($montana['nombre']); ?>"><button>Eliminar</button></a></td>
                         <td><a href="index.php?accion=validar&atraccion=<?php echo htmlspecialchars($montana['nombre']); ?>"><button>Validar</button></a></td>
                     <?php endif; ?>
                 </tr>
@@ -123,9 +118,11 @@ $montanasRusasGenerales = array_filter($montanasRusas, function ($montana) use (
                 <th>Nombre</th>
                 <th>Velocidad</th>
                 <th>Altura</th>
+                <th>Fabricante</th>
                 <th>Tipo</th>
                 <th>Ubicación</th>
                 <th>Fecha de Inauguración</th>
+                <th>Funciones</th>
             </tr>
         </thead>
         <tbody>
@@ -134,10 +131,11 @@ $montanasRusasGenerales = array_filter($montanasRusas, function ($montana) use (
                     <td><?php echo htmlspecialchars($montana['nombre']); ?></td>
                     <td><?php echo htmlspecialchars($montana['velocidad']); ?> km/h</td>
                     <td><?php echo htmlspecialchars($montana['altura']); ?> m</td>
-                    <td><?php echo htmlspecialchars($montana['fabricante']); ?> m</td>
+                    <td><?php echo htmlspecialchars($montana['fabricante']); ?></td>
                     <td><?php echo htmlspecialchars($montana['tipo']); ?></td>
                     <td><?php echo htmlspecialchars($montana['ubicacion']); ?></td>
                     <td><?php echo htmlspecialchars($montana['fecha_inauguracion']); ?></td>
+                    <td><a href="index.php?accion=eliminar&atraccion=<?php echo htmlspecialchars($montana['nombre']); ?>"><button>Eliminar</button></a></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>

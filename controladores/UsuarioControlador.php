@@ -16,9 +16,7 @@ class UsuarioControlador
     // Logout (cerrar sesión)
     public function logout()
     {
-        session_destroy();
-        header('Location: index.php?accion=index');
-        exit();
+        Usuario::logout();
     }
 
     // Registrar un nuevo usuario

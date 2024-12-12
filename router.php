@@ -8,8 +8,12 @@ require_once __DIR__ . '/controladores/UsuarioControlador.php';
 require_once __DIR__ . '/controladores/MontañaRusaControlador.php';
 
 // Obtener la acción de la URL, por defecto es 'index'
-$accion = $_GET['accion'] ?? 'index';
 
+$accion = $_GET['accion'] ?? 'index';
+if (!isset($_SESSION['user']) && $accion != 'login' && $accion != 'registrar') {
+    header('Location: /Proyecto%20MVC%20PHP%20Servidor/?accion=login');
+    exit();
+}
 // Procesar la acción con un switch
 switch ($accion) {
     case 'index':
@@ -29,20 +33,13 @@ switch ($accion) {
         (new UsuarioControlador())->logout();
         break;
     case 'registrar':
-        // Acción para registrar un nuevo usuario
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            (new UsuarioControlador())->registrar();
-        } else {
-            require_once __DIR__ . '/vistas/usuario/registrar.php';
-        }
+        (new UsuarioControlador())->registrar();
         break;
     case 'agregar_evento':
-        // Acción para agregar un evento
-        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-            (new EventoControlador())->agregar();
-        } else {
-            require_once __DIR__ . '/vistas/evento/agregar.php';
-        }
+        (new EventoControlador())->agregar();
+        break;
+    case 'compartir_evento':
+        (new EventoControlador())->compartir();
         break;
     case 'listar_eventos':
         // Acción para listar los eventos
@@ -55,6 +52,14 @@ switch ($accion) {
     case 'validar':
         // Acción para validar una nueva montaña rusa
         (new MontañaRusaControlador())->validar();
+        break;
+    case 'noAsistir':
+        // Acción para eliminar una nueva montaña rusa
+        (new EventoControlador())->eliminar();
+        break;
+    case 'asistir':
+        // Acción para validar una nueva montaña rusa
+        (new EventoControlador())->asistir();
         break;
     default:
         echo "Acción no reconocida.";  // Mensaje si la acción no está definida

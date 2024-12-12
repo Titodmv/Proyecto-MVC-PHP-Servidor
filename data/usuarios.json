@@ -1,28 +1,53 @@
 {
-    "usuarios": {
-        "Collado": {
-            "nombreUsuario": "Collado",
-            "contrasena": "$2y$10$.NZc22FO4ck9HZZqL\/Ws4.3S\/EXbH9VUiTlqFOZy\/Q5HWuAbZncMy",
-            "rol": "usuario",
-            "eventos": []
-        },
-        "Intamin": {
-            "nombreUsuario": "Intamin",
-            "contrasena": "$2y$10$EgKYY4v77RXEEdDSb98Kh.dfOspvWYWuOpumo9zE798YXRLs2Cusu",
-            "rol": "fabricante",
-            "eventos": []
-        },
-        "David": {
-            "nombreUsuario": "David",
-            "contrasena": "$2y$10$WDXWDomzRd46IQ3JqeSjBuBZTrfTkGK0kowex5tP1sasM3DcUlcba",
-            "rol": "usuario",
-            "eventos": []
-        },
-        "Iago": {
-            "nombreUsuario": "Iago",
-            "contrasena": "$2y$10$MwBWVJRlqUxPLaoraZ27x.3lSbYHowPwkuvlHI29aOurP82iUuZPG",
-            "rol": "usuario",
-            "eventos": []
+    "Collado": {
+        "nombreUsuario": "Collado",
+        "contrasena": "$2y$10$l\/FTXsBPknRP7ki3RX2Uaedck7luyfxyhXxcFGU8LkJYEo1khvzEm",
+        "rol": "administrador",
+        "eventos": {
+            "b": {
+                "nombre": "b",
+                "fecha": "2024-12-19",
+                "descripcion": "asdasdasd",
+                "asistencia": true
+            }
+        }
+    },
+    "David": {
+        "nombreUsuario": "David",
+        "contrasena": "$2y$10$CPGJPYGEDObIUgGn7y2SVeW8iWBrjViR9Ae4OcVS1ydddiyXfWRCK",
+        "rol": "usuario",
+        "eventos": {
+            "a": {
+                "nombre": "a",
+                "fecha": "2024-12-21",
+                "descripcion": "dasda",
+                "asistencia": false
+            },
+            "b": {
+                "nombre": "b",
+                "fecha": "2024-12-19",
+                "descripcion": "asdasdasd",
+                "asistencia": false
+            }
+        }
+    },
+    "Intamin": {
+        "nombreUsuario": "Intamin",
+        "contrasena": "$2y$10$VtBRGwSTfw.4kN2lDFq9ZOe2zRwxPwuBdZsLu\/b4DKD8xwlNbzJz6",
+        "rol": "fabricante",
+        "eventos": []
+    },
+    "Iago": {
+        "nombreUsuario": "Iago",
+        "contrasena": "$2y$10$r26P\/FdxKODDTqCrSEC5.ulud087DGWmKg4CJwguTQB3lnol5i3OS",
+        "rol": "usuario",
+        "eventos": {
+            "a": {
+                "nombre": "a",
+                "fecha": "2024-12-21",
+                "descripcion": "dasda",
+                "asistencia": false
+            }
         }
     }
 }
