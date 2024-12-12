@@ -1,18 +1,35 @@
-<h2>Registrarse</h2>
-<form action="index.php?accion=registrar" method="POST">
-    <label for="nombreUsuario">Nombre de Usuario:</label>
-    <input type="text" name="nombreUsuario" required><br>
+<!DOCTYPE html>
+<html lang="es">
 
-    <label for="contrasena">Contraseña:</label>
-    <input type="password" name="contrasena" required><br>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
+    <title>Montañas Rusas</title>
+</head>
 
-    <label for="rol">Rol</label>
-    <select name="rol">
-        <option value="fabricante">Fabricante</option>
-        <option value="usuario">Usuario</option>
-        <option value="administrador">Administrador</option>
-    </select>
-    <br>
-    <button type="submit">Registarse</button>
-    <a href="index.php?accion=login">¿Ya tienes cuenta? Logueate aquí</a>
-</form>
+<body id="loginRegister">
+    <div>
+    <h2>REGISTRARSE</h2>
+    <form action="index.php?accion=registrar" method="POST">
+        <label for="nombreUsuario">Nombre de Usuario</label>
+        <input type="text" name="nombreUsuario" required><br>
+
+        <label for="contrasena">Contraseña</label>
+        <input type="password" name="contrasena" required><br>
+
+        <label for="rol">Rol</label>
+        <select name="rol">
+            <option value="fabricante">Fabricante</option>
+            <option value="usuario">Usuario</option>
+            <option value="administrador">Administrador</option>
+        </select>
+        <br>
+        <input type="submit" value="Registrarse"></input>
+        <p>¿Ya tienes cuenta? Logueate <a href="index.php?accion=login">aquí</a></p>
+    </form>
+    </div>
+
+</body>
+
+</html>

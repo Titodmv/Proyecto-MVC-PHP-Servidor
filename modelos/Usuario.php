@@ -28,7 +28,7 @@ class Usuario
         // Guardar los usuarios actualizados en el archivo JSON
         file_put_contents(__DIR__ . '/../data/usuarios.json', json_encode($usuarios, JSON_PRETTY_PRINT));
 
-        header('Location: index.php?accion=login'); // Redirigir al login
+        header('Location: index.php?accion=login');
         exit();
     }
 
@@ -48,7 +48,7 @@ class Usuario
 
     public static function logout(){
         session_destroy();
-        header('Location: index.php?accion=index');
+        header('Location: index.php?accion=login');
         exit();
     }
 }
