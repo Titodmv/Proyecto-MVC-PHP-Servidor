@@ -1,23 +1,28 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../css/style.css">
     <title>Montañas Rusas</title>
 </head>
-<body>
-<h2>Iniciar Sesión</h2>
-<form action="index.php?accion=login" method="POST">
-    <label for="nombreUsuario">Nombre de Usuario:</label>
-    <input type="text" name="nombreUsuario" required><br>
 
-    <label for="contrasena">Contraseña:</label>
-    <input type="password" name="contrasena" required><br>
+<body id="loginRegister">
+    <div>
+        <h2>INICIAR SESIÓN</h2>
+        <form action="index.php?accion=login" method="POST">
+            <label for="nombreUsuario">Nombre de Usuario</label><br>
+            <input type="text" name="nombreUsuario" required><br>
 
-    <button type="submit">Iniciar Sesión</button>
-    <a href="index.php?accion=registrar">¿No tienes cuenta? Regístrate aquí</a>
+            <label for="contrasena">Contraseña</label><br>
+            <input type="password" name="contrasena" required><br>
 
-</form>
+            <input type="submit" value="Entrar"></input>
+            <p>¿No tienes cuenta? Regístrate <a href="index.php?accion=registrar">aquí</a></p>
+
+        </form>
+    </div>
 </body>
+
 </html>
