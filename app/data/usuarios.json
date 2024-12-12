@@ -9,6 +9,12 @@
                 "fecha": "2024-12-19",
                 "descripcion": "asdasdasd",
                 "asistencia": true
+            },
+            "KDD": {
+                "nombre": "KDD",
+                "fecha": "2024-12-13",
+                "descripcion": "kdd",
+                "asistencia": true
             }
         }
     },
