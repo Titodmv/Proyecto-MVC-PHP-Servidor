@@ -14,5 +14,5 @@
     </select>
     <br>
     <button type="submit">Registarse</button>
-    <a href="/Proyecto%20MVC%20PHP%20Servidor/?accion=login">¿Ya tienes cuenta? Logueate aquí</a>
+    <a href="index.php?accion=login">¿Ya tienes cuenta? Logueate aquí</a>
 </form>

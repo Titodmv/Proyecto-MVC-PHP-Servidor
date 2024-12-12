@@ -11,7 +11,7 @@ require_once __DIR__ . '/controladores/MontañaRusaControlador.php';
 
 $accion = $_GET['accion'] ?? 'index';
 if (!isset($_SESSION['user']) && $accion != 'login' && $accion != 'registrar') {
-    header('Location: /Proyecto%20MVC%20PHP%20Servidor/?accion=login');
+    header('Location: index.php/?accion=login');
     exit();
 }
 // Procesar la acción con un switch
