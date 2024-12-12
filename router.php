@@ -38,6 +38,9 @@ switch ($accion) {
     case 'agregar_evento':
         (new EventoControlador())->agregar();
         break;
+    case 'compartir_evento':
+        (new EventoControlador())->compartir();
+        break;
     case 'listar_eventos':
         // Acción para listar los eventos
         (new EventoControlador())->listar();

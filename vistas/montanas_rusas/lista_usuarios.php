@@ -36,4 +36,5 @@
 <br>
 <a href="index.php?accion=logout">Cerrar sesión</a>
 <br>
-<a href="index.php?accion=agregar_evento">Crear un evento o compartirlo</a>
+<a href="index.php?accion=agregar_evento">Crear un evento o compartirlo</a><br>
+<a href="index.php/?accion=listar_eventos">Ver eventos</a>

@@ -23,7 +23,7 @@ class Usuario
         // Obtener los usuarios existentes
         $usuarios = self::obtenerTodos();
 
-        $usuarios['usuarios'][$nombre] = $nuevoUsuario;
+        $usuarios[$nombre] = $nuevoUsuario;
 
         // Guardar los usuarios actualizados en el archivo JSON
         file_put_contents(__DIR__ . '/../data/usuarios.json', json_encode($usuarios, JSON_PRETTY_PRINT));
@@ -37,8 +37,8 @@ class Usuario
     {
         $usuarios = self::obtenerTodos();
 
-        if (isset($usuarios['usuarios'][$nombre]) && password_verify($contrasena, $usuarios['usuarios'][$nombre]['contrasena'])) {
-            $_SESSION['user'] = $usuarios['usuarios'][$nombre];
+        if (isset($usuarios[$nombre]) && password_verify($contrasena, $usuarios[$nombre]['contrasena'])) {
+            $_SESSION['user'] = $usuarios[$nombre];
             header('Location: index.php?accion=index');
             exit();
         }

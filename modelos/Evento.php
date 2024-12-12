@@ -13,10 +13,32 @@ class Evento
     public static function guardar($nombreEvento, $evento)
     {
         $data = Usuario::obtenerTodos();
+        $data[$_SESSION['user']['nombreUsuario']]['eventos'][$nombreEvento] = $evento;
+        file_put_contents(__DIR__ . '/../data/usuarios.json', json_encode($data, JSON_PRETTY_PRINT));
+    }
 
-        $data['usuarios'][$_SESSION['user']['nombreUsuario']]['eventos'][$nombreEvento] = $evento;
-        file_put_contents(__DIR__ . '/../datos/usuarios.json', json_encode($data, JSON_PRETTY_PRINT));
-        //header('Location: index.php?accion=listar_eventos');
-        //exit();
+    public static function compartir($nEvetno, $nUsuario) {
+        $data = Usuario::obtenerTodos();
+
+        if (isset($data[$_SESSION['user']['nombreUsuario']]['eventos'][$nEvetno])) {
+            if (isset($data[$nUsuario])) {
+
+                $data[$nUsuario]['eventos'][$nEvetno] = $data[$_SESSION['user']['nombreUsuario']]['eventos'][$nEvetno];
+                $data[$nUsuario]['eventos'][$nEvetno]['asistencia'] = false;
+                
+                file_put_contents(__DIR__ . '/../data/usuarios.json', json_encode($data, JSON_PRETTY_PRINT));
+            }
+            else {
+                echo "El usuario no existe";
+            }
+        }
+        else {
+            echo "El evento no existe";
+        }
+    }
+
+    public static function listar() {
+        $data = Usuario::obtenerTodos();
+        return $data[$_SESSION['user']['nombreUsuario']]['eventos'];
     }
 }
