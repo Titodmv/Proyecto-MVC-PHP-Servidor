@@ -15,7 +15,7 @@ html {
     width: 100%;
     background-image: url("../imagenes/Zadra.jpg");
     background-size: 100%;
-    backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px); 
 }
 
 #loginRegister div {
