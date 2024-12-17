@@ -1,8 +1,3 @@
-<?php
-if (!isset($_COOKIE['logueado'])) {
-    // header('Location: /vistas/usuario/login.php');
-}
-?>
 <h2>Lista de Eventos</h2>
 
 <!-- Tabla de Eventos del Usuario -->
@@ -18,8 +13,8 @@ if (!isset($_COOKIE['logueado'])) {
         </tr>
     </thead>
     <tbody>
-        <?php if (!empty($dataUsuario)): ?>
-            <?php foreach ($dataUsuario as $evento): ?>
+        <?php if (!empty($eventosUsuario)): ?>
+            <?php foreach ($eventosUsuario as $evento): ?>
                 <tr>
                     <td><?php echo htmlspecialchars($evento['nombre']); ?></td>
                     <td><?php echo htmlspecialchars($evento['fecha']); ?></td>

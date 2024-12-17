@@ -6,9 +6,11 @@ class EventoControlador
     // Mostrar la lista de eventos
     public function listar()
     {
-        Evento::eliminarEventosPasados(); 
-        $eventosUsuario = Evento::listar(); 
+        $eventosUsuario = Evento::actualizarEventosUsuario(); 
         $eventosGenerales = Evento::obtenerEventosGenerales(); 
+        
+        print_r($eventosUsuario);
+        //$eventosGenerales = Evento::obtenerEventosGenerales(); 
 
         require_once __DIR__ . '/../vistas/evento/lista.php'; 
     }

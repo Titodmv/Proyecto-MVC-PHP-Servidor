@@ -1,5 +1,8 @@
 <?php
-require_once __DIR__ . '/Usuario.php';
+
+spl_autoload_register(function ($clase) {
+    require_once __DIR__ . "/$clase.php";
+});
 class Evento
 {
 
@@ -45,17 +48,6 @@ class Evento
         }
     }
 
-    public static function listar()
-    {
-        Evento::eliminarEventosPasados(); // Eliminar eventos pasados
-        $eventosUsuario = Evento::listar(); // Obtener eventos del usuario
-        $eventosGenerales = Evento::obtenerEventosGenerales(); // Obtener eventos generales
-    
-        require_once __DIR__ . '/../vistas/evento/lista.php'; // Pasar ambas listas a la vista
-    }
-    
-
-
     public static function eliminar($nombre)
     {
         $data = Usuario::obtenerTodos();
@@ -75,25 +67,27 @@ class Evento
     }
 
 
-    public static function eliminarEventosPasados()
+    public static function actualizarEventosUsuario()
 {
     $data = Usuario::obtenerTodos();
     $fechaActual = strtotime(date('Y-m-d'));
+    $usuario = $_SESSION['user']['nombreUsuario'];
 
-    foreach ($data as $usuario => $infoUsuario) {
-        foreach ($infoUsuario['eventos'] as $nombreEvento => $evento) {
-            if (strtotime($evento['fecha']) < $fechaActual) {
-                unset($data[$usuario]['eventos'][$nombreEvento]);
-            }
+    foreach ($data[$usuario]['eventos'] as $key =>$value) {
+        if (strtotime($value['fecha']) < $fechaActual) {
+            unset($data[$usuario]['eventos'][$key]);
         }
     }
 
     file_put_contents(__DIR__ . '/../data/usuarios.json', json_encode($data, JSON_PRETTY_PRINT));
+
+
+    return $data[$usuario]['eventos'];
 }
 
 public static function obtenerEventosGenerales()
 {
-    return json_decode(file_get_contents(__DIR__ . '/../datos/eventos_generales.json'), true);
+    return json_decode(file_get_contents(__DIR__ . '/../data/eventos.json'), true);
 }
 
         

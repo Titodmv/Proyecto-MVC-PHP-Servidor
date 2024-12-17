@@ -2,10 +2,10 @@
 // Iniciar la sesión para poder usar variables de sesión
 session_start();
 
-// Incluir los controladores
-require_once __DIR__ . '/controladores/EventoControlador.php';
-require_once __DIR__ . '/controladores/UsuarioControlador.php';
-require_once __DIR__ . '/controladores/MontañaRusaControlador.php';
+// Incluir los controladores automaticamente
+spl_autoload_register(function ($clase) {
+    require_once __DIR__ . "/controladores/$clase.php";
+});
 
 // Obtener la acción de la URL, por defecto es 'index'
 
