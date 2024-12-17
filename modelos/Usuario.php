@@ -43,7 +43,7 @@ class Usuario
             exit();
         }
 
-        echo "Usuario o contraseña incorrecta";
+        echo "<p id='error'>Usuario o contraseña incorrecta<p>";
     }
 
     public static function logout(){
