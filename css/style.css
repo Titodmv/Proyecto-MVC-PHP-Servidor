@@ -15,7 +15,7 @@ html {
     color: rgb(230, 48, 48);
 }
 
-/*Estilo login*/
+/*Estilo login y register*/
 #loginRegister {
     width: 100%;
 }
@@ -91,4 +91,72 @@ html {
 
 #loginRegister a {
     color: rgba(35, 22, 112);
+}
+
+/*Lista de montañas rusas*/
+
+#listaMontañas {
+    position: sticky;
+    top: 0;
+    padding: 15px;
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    box-shadow: 0px 0px 1px 1px black;
+    background-color: whitesmoke;
+    align-items: center;
+    margin-bottom: 50px;
+    gap: 10%;
+}
+
+#listaMontañas div {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+#listaMontañas h1 {
+    color: rgb(65, 0, 126);
+}
+
+#listaMontañas a{
+    text-decoration: none;
+    color: black;
+}
+
+#tablaMontañas {
+    border-radius: 10px;
+    border-spacing: 0;
+    border: 1px solid rgb(109, 109, 109);
+    margin: 0 auto;
+}
+
+#tablaMontañas td ,
+#tablaMontañas th{
+    padding: 10px 20px;
+    border: 1px solid rgb(214, 214, 214);
+}
+
+
+#tablaMontañas th:first-child {
+    border-radius: 10px 0px 0px 0px;
+}
+
+#tablaMontañas th:last-child {
+    border-radius: 0px 10px 0px 0px;
+}
+
+#tablaMontañas thead tr th{
+    background-color: rgb(95, 95, 95);
+    color: white;
+    
+}
+
+#tablaMontañas tr:last-child td:last-child {
+    border-radius: 0px 0px 10px 0px;
+}
+
+#tablaMontañas tr:last-child td:first-child {
+    border-radius: 0px 0px 0px 10px;
 }

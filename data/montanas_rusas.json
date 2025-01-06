@@ -228,5 +228,15 @@
         "ubicacion": "Michigan's Adventure, MI, USA",
         "fecha_inauguracion": "1998-05-23",
         "Valido": "Si"
+    },
+    "montanas_rusas": {
+        "nombre": "algo",
+        "velocidad": "11",
+        "altura": "111",
+        "fabricante": "algo",
+        "tipo": "fs",
+        "ubicacion": "fsd",
+        "fecha_inauguracion": "2025-01-01",
+        "Valido": "No"
     }
 }

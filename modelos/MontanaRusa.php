@@ -2,7 +2,6 @@
 
 class MontanaRusa
 {
-
     // Obtener todas las montañas rusas
     public static function obtenerTodas()
     {
