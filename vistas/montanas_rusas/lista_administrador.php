@@ -26,42 +26,30 @@ $montanasRusasGenerales = array_filter($montanasRusas, function ($montana) use (
 
 
 <!DOCTYPE html>
-<html lang="es">
+<html lang="en">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../css/style.css">
     <title>Montañas Rusas - Panel de Fabricante</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        table,
-        th,
-        td {
-            border: 1px solid black;
-        }
-
-        th,
-        td {
-            padding: 8px;
-            text-align: left;
-        }
-
-        .filtro {
-            margin-bottom: 20px;
-        }
-    </style>
 </head>
 
 <body>
-    <h1>Panel de Montañas Rusas</h1>
+    <nav id="listaMontañas">
+        <h1>Lista de Montañas Rusas</h1>
+        <div>
+            <a href="index.php?accion=agregar">Agregar Montaña Rusa</a>
+            <a href="index.php?accion=agregar_evento">Crear evento</a>
+            <a href="index.php/?accion=listar_eventos">Ver eventos</a>
+            <a href="index.php?accion=logout">Cerrar sesión</a>
+        </div>
+    </nav>
 
+    <h1>Panel de Montañas Rusas</h1>
     <!-- Tabla de montañas rusas creadas por el fabricante -->
     <h2>Montañas rusas por validar</h2>
-    <table>
+    <table id="tablaMontañas">
         <thead>
             <tr>
                 <th>Nombre</th>
@@ -76,7 +64,7 @@ $montanasRusasGenerales = array_filter($montanasRusas, function ($montana) use (
         <tbody>
             <?php foreach ($montanasRusasGenerales as $montana) : ?>
                 <tr>
-                    <?php if ($montana['Valido'] == 'No') : ?>
+                    <?php if ($montana['Valido'] == "No") : ?>
                         <td><?php echo htmlspecialchars($montana['nombre']); ?></td>
                         <td><?php echo htmlspecialchars($montana['velocidad']); ?> km/h</td>
                         <td><?php echo htmlspecialchars($montana['altura']); ?> m</td>
@@ -112,7 +100,7 @@ $montanasRusasGenerales = array_filter($montanasRusas, function ($montana) use (
     </form>
 
     <!-- Tabla de montañas rusas generales filtradas -->
-    <table>
+    <table id="tablaMontañas">
         <thead>
             <tr>
                 <th>Nombre</th>
@@ -140,12 +128,7 @@ $montanasRusasGenerales = array_filter($montanasRusas, function ($montana) use (
             <?php endforeach; ?>
         </tbody>
     </table>
-    <a href="index.php?accion=agregar">Agregar Nueva Montaña Rusa</a>
-<br>
-<a href="index.php?accion=logout">Cerrar sesión</a>
-<br>
-<a href="index.php?accion=agregar_evento">Crear un evento o compartirlo</a><br>
-<a href="index.php/?accion=listar_eventos">Ver eventos</a>
+
 </body>
 
 </html>
