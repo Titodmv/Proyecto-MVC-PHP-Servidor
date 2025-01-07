@@ -10,12 +10,13 @@
 
 <body>
     <nav id="listaMontañas">
-        <h1>Lista de Montañas Rusas</h1>
+        <h2>Lista de Montañas Rusas</h2>
         <div>
-            <a href="index.php?accion=agregar">Agregar Montaña Rusa</a>
-            <a href="index.php?accion=agregar_evento">Crear evento</a>
-            <a href="index.php/?accion=listar_eventos">Ver eventos</a>
-            <a href="index.php?accion=logout">Cerrar sesión</a>
+            <a href="index.php?accion=index">Ver Montaña Rusa</a>
+            <a href="?accion=agregar">Agregar Montaña Rusa</a>
+            <a href="?accion=agregar_evento">Crear evento</a>
+            <a href="?accion=listar_eventos">Ver eventos</a>
+            <a href="?accion=logout">Cerrar sesión</a>
         </div>
     </nav>
     <?php if (empty($montanasRusas)): ?>
