@@ -26,7 +26,7 @@ $montanasRusasGenerales = array_filter($montanasRusas, function ($montana) use (
 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 
 <head>
     <meta charset="UTF-8">
@@ -37,18 +37,18 @@ $montanasRusasGenerales = array_filter($montanasRusas, function ($montana) use (
 
 <body>
     <nav id="listaMontañas">
-        <h1>Lista de Montañas Rusas</h1>
+        <h2>Lista de Montañas Rusas</h2>
         <div>
+            <a href="index.php?accion=index">Ver Montaña Rusa</a>
             <a href="index.php?accion=agregar">Agregar Montaña Rusa</a>
             <a href="index.php?accion=agregar_evento">Crear evento</a>
-            <a href="index.php/?accion=listar_eventos">Ver eventos</a>
+            <a href="index.php?accion=listar_eventos">Ver eventos</a>
             <a href="index.php?accion=logout">Cerrar sesión</a>
         </div>
     </nav>
 
-    <h1>Panel de Montañas Rusas</h1>
     <!-- Tabla de montañas rusas creadas por el fabricante -->
-    <h2>Montañas rusas por validar</h2>
+    <h3>Montañas rusas por validar</h3>
     <table id="tablaMontañas">
         <thead>
             <tr>
@@ -91,10 +91,10 @@ $montanasRusasGenerales = array_filter($montanasRusas, function ($montana) use (
     }
     ?>
     <!-- Formulario de filtro para las montañas rusas generales -->
-    <h2>Montañas Rusas Generales</h2>
-    <form class="filtro" method="GET" action="">
-        <label for="altura">Altura: </label>
-        <input type="number" id="altura" name="altura" value="<?php echo htmlspecialchars($filtrar['altura'] ?? ''); ?>"><br>
+    <h3>Montañas Rusas Generales</h3>
+    <form class="filtro" method="GET" action="" id="filtro">
+        <label for="altura">Altura minima</label>
+        <input type="number" id="altura" name="altura" value="<?php echo htmlspecialchars($filtrar['altura'] ?? ''); ?>">
 
         <button type="submit">Filtrar</button>
     </form>
@@ -130,5 +130,4 @@ $montanasRusasGenerales = array_filter($montanasRusas, function ($montana) use (
     </table>
 
 </body>
-
 </html>

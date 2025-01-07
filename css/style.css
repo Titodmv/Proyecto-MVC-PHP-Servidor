@@ -34,8 +34,16 @@ html {
     padding: 20px;
 }
 
-#loginRegister h2 {
+h2 {
     color: rgb(65, 0, 126);
+    margin: 10px auto;
+    
+}
+
+h3 {
+    color: rgb(45, 0, 87);
+    margin: 10px auto;
+    text-align: center;
 }
 
 #loginRegister form {
@@ -160,4 +168,22 @@ html {
 
 #tablaMontañas tr:last-child td:first-child {
     border-radius: 0px 0px 0px 10px;
+}
+
+#filtro {
+    display: flex;
+    width: 400px;
+    justify-content: space-between;
+    margin: 10px auto;
+}
+
+#agregar {
+    display: grid;
+    grid-template-columns: 250px 200px;
+    gap: 10px;
+}
+
+#agregar button {
+    width: 170px;
+    padding: 10px ;
 }

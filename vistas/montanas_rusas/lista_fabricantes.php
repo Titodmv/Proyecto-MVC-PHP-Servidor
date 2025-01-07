@@ -36,37 +36,25 @@ $montanasRusasGenerales = array_filter($montanasRusas, function ($montana) use (
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Montañas Rusas - Panel de Fabricante</title>
-    <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-
-        table,
-        th,
-        td {
-            border: 1px solid black;
-        }
-
-        th,
-        td {
-            padding: 8px;
-            text-align: left;
-        }
-
-        .filtro {
-            margin-bottom: 20px;
-        }
-    </style>
+    <title>Montañas Rusas - Panel del Fabricante</title>
+    <link rel="stylesheet" href="../css/style.css">
 </head>
 
 <body>
-    <h1>Panel de Montañas Rusas</h1>
+    <nav id="listaMontañas">
+        <h2>Lista de Montañas Rusas</h2>
+        <div>
+            <a href="index.php?accion=index">Ver Montaña Rusa</a>
+            <a href="index.php?accion=agregar">Agregar Montaña Rusa</a>
+            <a href="index.php?accion=agregar_evento">Crear evento</a>
+            <a href="index.php?accion=listar_eventos">Ver eventos</a>
+            <a href="index.php?accion=logout">Cerrar sesión</a>
+        </div>
+    </nav>
 
     <!-- Tabla de montañas rusas creadas por el fabricante -->
-    <h2>Mis Montañas Rusas</h2>
-    <table>
+    <h3>Mis Montañas Rusas</h3>
+    <table id="tablaMontañas">
         <thead>
             <tr>
                 <th>Nombre</th>
@@ -108,8 +96,8 @@ $montanasRusasGenerales = array_filter($montanasRusas, function ($montana) use (
     }
     ?>
     <!-- Formulario de filtro para las montañas rusas generales -->
-    <h2>Montañas Rusas Generales</h2>
-    <form class="filtro" method="GET" action="">
+    <h3>Montañas Rusas Generales</h3>
+    <form class="filtro" method="GET" action="" id="filtro">
         <label for="altura">Altura: </label>
         <input type="number" id="altura" name="altura" value="<?php echo htmlspecialchars($filtrar['altura'] ?? ''); ?>"><br>
 
@@ -117,13 +105,14 @@ $montanasRusasGenerales = array_filter($montanasRusas, function ($montana) use (
     </form>
 
     <!-- Tabla de montañas rusas generales filtradas -->
-    <table>
+    <table id="tablaMontañas">
         <thead>
             <tr>
                 <th>Nombre</th>
                 <th>Velocidad</th>
                 <th>Altura</th>
                 <th>Tipo</th>
+                <th>Fabricante</th>
                 <th>Ubicación</th>
                 <th>Fecha de Inauguración</th>
             </tr>
@@ -134,20 +123,14 @@ $montanasRusasGenerales = array_filter($montanasRusas, function ($montana) use (
                     <td><?php echo htmlspecialchars($montana['nombre']); ?></td>
                     <td><?php echo htmlspecialchars($montana['velocidad']); ?> km/h</td>
                     <td><?php echo htmlspecialchars($montana['altura']); ?> m</td>
-                    <td><?php echo htmlspecialchars($montana['fabricante']); ?> m</td>
                     <td><?php echo htmlspecialchars($montana['tipo']); ?></td>
+                    <td><?php echo htmlspecialchars($montana['fabricante']); ?> m</td>
                     <td><?php echo htmlspecialchars($montana['ubicacion']); ?></td>
                     <td><?php echo htmlspecialchars($montana['fecha_inauguracion']); ?></td>
                 </tr>
             <?php endforeach; ?>
         </tbody>
     </table>
-    <a href="index.php?accion=agregar">Agregar Nueva Montaña Rusa</a>
-<br>
-<a href="index.php?accion=logout">Cerrar sesión</a>
-<br>
-<a href="index.php?accion=agregar_evento">Crear un evento o compartirlo</a><br>
-<a href="index.php/?accion=listar_eventos">Ver eventos</a>
-</body>
 
+</body>
 </html>
